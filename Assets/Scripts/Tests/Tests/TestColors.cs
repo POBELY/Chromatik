@@ -13,6 +13,11 @@ public class TestColors
             yield return new TestCaseData(new Color(0, 0, 0), new Color(0, 0, 0)).SetName("Black stays black");
             yield return new TestCaseData(new Color(1, 1, 1), new Color(1, 1, 1)).SetName("White stays white");
             yield return new TestCaseData(new Color(0.5f, 0.5f, 0.5f), new Color(0.5f, 0.5f, 0.5f)).SetName("Grey stays grey");
+            yield return new TestCaseData(new Color(1, 0, 0), new Color(1, 0, 0)).SetName("Red stays red");
+
+            //yield return new TestCaseData(new Color(0, 1, 0), new Color(0, 0, 0)).SetName("Green becomes black");
+            //yield return new TestCaseData(new Color(0, 0, 1), new Color(0, 0, 0)).SetName("Blue becomes black");
+
             yield return new TestCaseData(new Color(1, 0.5f, 0.3f), new Color(1, 0.4f, 0.4f)).SetName("Mean under red");
             yield return new TestCaseData(new Color(0.3f, 0.5f, 0.4f), new Color(0.4f, 0.4f, 0.4f)).SetName("Mean above red");
             yield return new TestCaseData(new Color(0.4f, 0.6f, 0.2f), new Color(0.4f, 0.4f, 0.4f)).SetName("Mean equals red");
