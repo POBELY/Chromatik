@@ -49,11 +49,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 8
   moveSpeed: 5
-  groundCheck: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
-  isGrounded: 0
+  doubleJump: 0
+  jumpGravityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.026355743
+      value: 0.9498596
+      inSlope: 0.05149764
+      outSlope: 0.05149764
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.05149764
+      outSlope: 0.05149764
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxJumpTime: 1
 --- !u!50 &590677218695660929
 Rigidbody2D:
   serializedVersion: 4
