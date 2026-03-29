@@ -49,6 +49,7 @@ public class Test : MonoBehaviour {
             Filter.RED => MonoFilter(color.r, color.g, color.b),
             Filter.GREEN => MonoFilter(color.g, color.r, color.b),
             Filter.BLUE => MonoFilter(color.b, color.g, color.r),
+            _ => color
         };
     }
 

@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+enum STATE { IDLE, ATTACK1, ATTACK2, ATTACK3 };
+
+public class Player : Character
 {
+
+    private STATE state = STATE.IDLE;
+
 
     public float jumpForce = 10f;
     public float moveSpeed = 5f;
@@ -23,9 +28,6 @@ public class Player : MonoBehaviour
     private float jumpTime;
 
     private bool lookRight;
-
-    // Weapon : dedicated class ?
-    public Weapon sword;
 
 
     private void Awake()
@@ -121,7 +123,7 @@ public class Player : MonoBehaviour
         {
             lookRight = move.x >= 0;
             spriteRenderer.flipX = move.x < 0;
-            sword.Flip();
+            swordSlash.Flip();
         }
     }
 
@@ -134,11 +136,6 @@ public class Player : MonoBehaviour
         }
         move.Normalize();
         rb.AddForce(move * dashSpeed, ForceMode2D.Impulse);
-    }
-
-    void Attack()
-    {
-        sword.Attack();
     }
 
     private bool IsGrounded()
@@ -163,7 +160,21 @@ public class Player : MonoBehaviour
     }
 
 
+    override public void Hit(int damages)
+    {
+        base.Hit(damages);
+        GameManager.Instance.healthPoints.LifeUpdate();
+        if (health == 0)
+        {
+            Die();
+        }
+    }
 
+    override protected void Die()
+    {
+        base.Die();
+        Debug.Log("END");
+    }
 
     /*private void OnDrawGizmos()
     {

@@ -5,7 +5,33 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+    private static GameManager instance;
+    public static GameManager Instance { get { return instance; } }
+
+
+    // HUD
+    public HealthPoints healthPoints;
+
+    // Single Gameobjects
+    public Player player;
+
+
+    // Get player by gameManager
+
     public Material channelMixerMaterial;
+
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
